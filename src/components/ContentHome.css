@@ -18,7 +18,7 @@
 }
 
 .movies{
-    width: 96vw;
+    width: 94vw;
     height: auto;
     display: flex;
     flex-direction: row;
@@ -31,7 +31,8 @@
 .movie {
     background-color: #1F2421;
     height: 150px;
-    width: 250px;
+    min-width: 250px;
+    width: 21vw;
     margin-right: 40px;
     margin-top: 40px;
 }

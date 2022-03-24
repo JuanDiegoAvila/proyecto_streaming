@@ -3,7 +3,7 @@ import './ContentHome.css';
 
 export default function ContentHome({name}){
 
-    const [movies, setMovies] = useState([{id:1},{ id:2 }, {id: 3},{id:1},{id:1},{id:1},{id:1},{id:1},{id:1},{id:1},{id:1},{id:1},{id:1}])
+    const [movies, setMovies] = useState([{id:1},{ id:2 }, {id: 3}])
 
     /* fetch de bases de datos de las peliculas */
     
@@ -18,9 +18,6 @@ export default function ContentHome({name}){
                 movies.map( (movie) => 
                     <div className ="movie" key={movie.id}/>
                )
-
-                    
-                
             }
            </div>
         </div>

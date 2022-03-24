@@ -1,6 +1,6 @@
 import './TitleBar.css';
 
-export default function TitleBar({name, subscription}){
+export default function TitleBar({name, subscription, setModal}){
     
     return (
         <div className="title-bar">
@@ -9,8 +9,14 @@ export default function TitleBar({name, subscription}){
 
            <div className= "right-items">
 
-            <button onClick={()=> {console.log("search")}}><img src ="/img/search.png"/></button>
-            <button><img src ="/img/user.png"/></button>
+            <button>
+                <img src ="/img/search.png"/>
+            </button>
+
+            <button onClick={()=> {setModal(true)}}>
+                <img src ="/img/user.png"/>
+            </button>
+
             <div className = 'user-info'>
                 <h1>{name}</h1>
                 <p>{subscription}</p>
