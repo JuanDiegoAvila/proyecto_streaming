@@ -17,7 +17,6 @@ export default function Search({name, modal, setModal}){
             <label className='search'>
                 <input 
                     type="text" 
-                    //ref={title}
                     onChange={(e) => setTitle(e.target.value)} 
                     value={title}
                 />
