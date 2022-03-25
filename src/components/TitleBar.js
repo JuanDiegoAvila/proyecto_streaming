@@ -1,7 +1,9 @@
 import './TitleBar.css';
 
-export default function TitleBar({name, subscription, setModal}){
-    
+export default function TitleBar({name, subscription, setModal, search, setSearch}){
+   
+    const url = search ?  "/img/home.png" : "/img/search.png"
+
     return (
         <div className="title-bar">
            
@@ -9,8 +11,8 @@ export default function TitleBar({name, subscription, setModal}){
 
            <div className= "right-items">
 
-            <button>
-                <img src ="/img/search.png"/>
+            <button onClick={()=> {setSearch(!search)}}>
+                <img src = {url}/>
             </button>
 
             <button onClick={()=> {setModal(true)}}>

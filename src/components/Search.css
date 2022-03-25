@@ -1,0 +1,22 @@
+.new_event_form label,
+.search input {
+    display: block;
+    text-align: left;
+    width: 95vw;
+    margin-top: 20px;
+    margin-left: 15px;
+    padding: 10px auto;
+    font-size: 1.2em;
+    background-color: #1F2421;
+    color: #E0E2DB;
+}
+
+.filter{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+}
+
