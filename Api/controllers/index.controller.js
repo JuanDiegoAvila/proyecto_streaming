@@ -82,6 +82,49 @@ const getPelisByID = async (req,res)=>{
     res.json(response.rows)
 }
 
+const getPelisByName = async (req,res)=>{
+    const id = req.params.id+"%"
+    console.log(id)
+    const response = await pool.query('select distinct * from peliculas_series ps where lower(ps.nombre) like $1',[id])
+    res.json(response.rows)
+}
+const getPelisByActor = async (req,res)=>{
+    const id = "%"+req.params.id+"%"
+    console.log(id)
+    const temp = await pool.query("select distinct ps.* from peliculas_series ps inner join actua a  on ps.codigo= a.id_contenido inner join actor a2  on a.id_actor =a2.id where  lower(concat(a2.nombre,' ',a2.apellido)) like $1" ,[id])
+    res.json(temp.rows)
+}
+const getPelisByGenero = async (req,res)=>{
+    const id = req.params.id+"%"
+    console.log(id)
+    const response = await pool.query('select distinct ps.* from peliculas_series ps inner join contenido_genero cg on ps.codigo= cg.id_contenido inner join generos g on cg.id_genero =g.id_genero where lower(g.genero) like $1',[id])
+    res.json(response.rows)
+}
+const getPelisByDirector = async (req,res)=>{
+    const id = req.params.id+"%"
+    console.log(id)
+    const response = await pool.query("select distinct ps.* from peliculas_series ps  inner join dirigio d on ps.codigo= d.id_contenido inner join directores d2  on d.id_director =d2.id where  lower(concat(d2.nombre,' ',d2.apellido)) like  $1",[id])
+    res.json(response.rows)
+}
+const getPelisByPremio = async (req,res)=>{
+    const id = req.params.id+"%"
+    console.log(id)
+    const response = await pool.query("select distinct ps.* from peliculas_series ps inner join gano g on ps.codigo= g.id_contenido  inner join premios p on g.id_premio =p.id where lower(p.nombre) like $1",[id])
+    res.json(response.rows)
+}
+const getPelisByCategoria = async (req,res)=>{
+    const id = req.params.id+"%"
+    console.log(id)
+    const response = await pool.query('select * from peliculas_series ps where lower(categoria) like $1',[id])
+    res.json(response.rows)
+}
+
+const getPelisByFecha = async (req,res)=>{
+    const id = req.params.id+"%"
+    console.log(id)
+    const response = await pool.query('select distinct ps.*  from peliculas_series ps where ps.fecha_estreno >=$1',[id])
+    res.json(response.rows)
+}
 module.exports = {
     getUsers,
     createUser,
@@ -90,5 +133,12 @@ module.exports = {
     updateUser,
     getPelis,
     getPelisByID,
-    passwordCheck
+    passwordCheck,
+    getPelisByName,
+    getPelisByActor,
+    getPelisByGenero,
+    getPelisByDirector,
+    getPelisByPremio,
+    getPelisByCategoria,
+    getPelisByFecha
 }

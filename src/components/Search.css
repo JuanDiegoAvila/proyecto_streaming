@@ -1,14 +1,29 @@
-.new_event_form label,
+.search label,
 .search input {
     display: block;
     text-align: left;
-    width: 95vw;
+    width: 90vw;
     margin-top: 20px;
     margin-left: 15px;
     padding: 10px auto;
     font-size: 1.2em;
     background-color: #1F2421;
     color: #E0E2DB;
+    align-self: center;
+}
+
+.search{
+    display: flex;
+    flex-direction: row;
+}
+
+.search button{
+    margin-left: 20px;
+    height: fit-content;
+    align-self:center;
+    background-color: #1F2421;
+    color: #E0E2DB;
+    margin-top: 20px;
 }
 
 .filter{
@@ -20,3 +35,18 @@
     background-color: #eee;
 }
 
+.parameters{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.param{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.param h3{
+    color: #E0E2DB;
+}

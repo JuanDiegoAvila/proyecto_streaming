@@ -5,6 +5,7 @@ import Search from './components/Search'
 
 import {useState} from 'react'
 
+
 function App() {
 
   const [modal, setModal] =  useState(false)
@@ -12,6 +13,7 @@ function App() {
 
   return (
     <div className="App">
+
       <TitleBar name={"Carla"} subscription={"PREMIUM"} setModal= {setModal} search={search} setSearch={setSearch}/>
       {!search && <Body name={"Carla"} modal={modal} setModal= {setModal}/>}
       {search && <Search name={"Carla"} modal={modal} setModal= {setModal}/>}
